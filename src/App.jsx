@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
+import { FeatherIcon } from "feather-icons";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -31,23 +32,34 @@ function App() {
       <h1 className="app-title">Todo App</h1>
       <p>Manage your tasks with ease</p>
       <div className="todos-main-container">
-        <div className="users-buttons-container">
-          <a href="#">Sarah</a>
-          <a href="#">Matt</a>
-          <a href="#">Lisa</a>
-          <a href="#">Joe</a>
-          <a href="#">Alex</a>
-        </div>
         {loading ? (
           <p>Loading...</p>
         ) : todos ? (
           <>
+            <div className="users-buttons-container">
+              <a href="#">Sarah</a>
+              <a href="#">Matt</a>
+            </div>
             <div className="list-container">
+              <div className="todo-input-container">
+                <input
+                  type="text"
+                  name="todo"
+                  id="todo"
+                  placeholder="Add a task"
+                />
+                <button>Add</button>
+              </div>
               <div className="todo-item">
                 <ul>
-                  <li>some to do</li>
                   {todos.map((todo) => (
-                    <li key={todo.id}>{todo.content}</li>
+                    <li className="list-item" key={todo.id}>
+                      {todo.content}
+                      <div className="list-item-buttons">
+                        <button>Edit</button>
+                        <button>Delete</button>
+                      </div>
+                    </li>
                   ))}
                 </ul>
               </div>
