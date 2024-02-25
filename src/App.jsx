@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faXmark,
+  faPlus,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 import axios from "axios";
-import { FeatherIcon } from "feather-icons";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -29,35 +34,42 @@ function App() {
 
   return (
     <div>
-      <h1 className="app-title">Todo App</h1>
-      <p>Manage your tasks with ease</p>
       <div className="todos-main-container">
+        <h1 className="app-title">Todo App</h1>
+        <p>Manage your tasks with ease</p>
         {loading ? (
           <p>Loading...</p>
         ) : todos ? (
           <>
+            <div className="input-container">
+              <input
+                type="text"
+                name="todo"
+                id="todo"
+                placeholder="Add a task"
+              />
+              <button>
+                <FontAwesomeIcon icon={faPlus} size="md" />
+              </button>
+            </div>
             <div className="users-buttons-container">
               <a href="#">Sarah</a>
               <a href="#">Matt</a>
             </div>
             <div className="list-container">
-              <div className="todo-input-container">
-                <input
-                  type="text"
-                  name="todo"
-                  id="todo"
-                  placeholder="Add a task"
-                />
-                <button>Add</button>
-              </div>
               <div className="todo-item">
                 <ul>
                   {todos.map((todo) => (
                     <li className="list-item" key={todo.id}>
-                      {todo.content}
+                      <p>{todo.content}</p>
                       <div className="list-item-buttons">
-                        <button>Edit</button>
-                        <button>Delete</button>
+                        <a href="#">
+                          {" "}
+                          <FontAwesomeIcon icon={faPenToSquare} size="md" />
+                        </a>
+                        <a href="#">
+                          <FontAwesomeIcon icon={faXmark} size="md" />
+                        </a>
                       </div>
                     </li>
                   ))}
