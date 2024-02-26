@@ -5,36 +5,8 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
 }
 
 .read-the-docs {
@@ -49,20 +21,19 @@
 
 p {
   margin: 0;
-  color: rgba(0, 0, 0, 0.262);
+  color: #888;
 }
 
 .todos-main-container {
-  border: 1px solid rgba(237, 237, 237, 0.435);
+  /* border: 1px solid rgba(237, 237, 237, 0.435); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
   padding: 4px;
-  border-radius: 65px;
+  border-radius: 14px;
   min-width: 350px;
-  background: rgb(236, 154, 255);
   background: radial-gradient(rgb(236, 236, 236) 0%, rgb(248, 248, 248) 75%);
 }
 
@@ -72,14 +43,20 @@ p {
   justify-content: space-around;
   align-items: center;
   gap: 10px;
-
   border-radius: 12px;
-  background-color: linear-gradient (0deg, #ebebebe4, #ffffff);
 
   a {
-    color: rgba(0, 0, 0, 0.861);
+    color: #3a43eca5;
     font-size: 14px;
     font-weight: 500;
+    background-color: #646cff0e;
+    padding: 1px 8px;
+    border-radius: 7px;
+    border: 1px solid #646cff1e;
+
+    &:hover {
+      color: #3a42ecd9;
+    }
   }
 }
 
@@ -101,17 +78,8 @@ p {
     background-color: white;
     border-bottom: 4px solid rgba(0, 0, 0, 0.053);
   }
-  button {
-    background-color: rgb(67, 98, 255);
-    color: white;
-    border-bottom: 4px solid rgb(49, 74, 200);
-    border-radius: 12px;
-    padding: 10px 15px;
-  }
 }
 .list-container {
-  border: 1px solid rgba(241, 241, 241, 0.46);
-  /* background-color: white; */
   border-radius: 60px;
   padding: 10px;
   min-width: 340px;
@@ -133,14 +101,13 @@ p {
     gap: 3px;
   }
   li {
-    border: 1px solid rgba(0, 0, 0, 0.019);
+    /* border: 1px solid rgba(0, 0, 0, 0.019); */
     list-style: none;
     padding: 10px 12px;
     border-radius: 15px;
     background-color: #ffffffa2;
-
     font-size: 14px;
-    color: rgba(0, 0, 0, 0.547);
+    color: #888;
     height: 100px;
     display: flex;
     flex-direction: column;

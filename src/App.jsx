@@ -7,12 +7,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 import axios from "axios";
+import { Button } from "@material-tailwind/react";
 
 function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     async function getTodos() {
       setLoading(true);
@@ -32,6 +34,22 @@ function App() {
     getTodos();
   }, []);
 
+  async function getUsers() {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        "https://todo-express-js-henna.vercel.app/users"
+      );
+      setUsers(response.data);
+      console.log(response.data);
+    } catch (error) {
+      setErrorMessage("Error retrieving todos. Please try again later.");
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+    return users;
+  }
   return (
     <div>
       <div className="todos-main-container">
@@ -48,11 +66,15 @@ function App() {
                 id="todo"
                 placeholder="Add a task"
               />
-              <button>
+
+              <Button>
                 <FontAwesomeIcon icon={faPlus} size="md" />
-              </button>
+              </Button>
             </div>
             <div className="users-buttons-container">
+              {users.map((user) => (
+                <a href="#">{user.name}</a>
+              ))}
               <a href="#">Sarah</a>
               <a href="#">Matt</a>
             </div>
